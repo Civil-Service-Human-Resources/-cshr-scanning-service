@@ -1,0 +1,87 @@
+swagger: '2.0'
+info:
+  description: Api Documentation
+  version: '1.0'
+  title: Api Documentation
+  termsOfService: 'urn:tos'
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0'
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: CSHR Scanning Service
+    description: API relating to the scanning of a given file for viruses and malware
+  - name: scanning-controller
+    description: Scanning Controller
+paths:
+  /scanner/scan:
+    post:
+      tags:
+        - scanning-controller
+      summary: scan file
+      description: >-
+        An Http Status of 200 will be returned for all successful requests to
+        scan a file regardless of whether or not a file itself has or has no
+        virus. Check the detail of the response body for further information - a
+        status code of CSHR_300 means the file was clean and not found to
+        contain a known virus or malware.  A status code of CSHR_301 means the
+        file was found to contain a known virus or malware.
+      operationId: scan
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: filename
+          in: query
+          description: filename
+          required: true
+          type: string
+        - name: file
+          in: formData
+          description: file
+          required: true
+          type: file
+      responses:
+        '200':
+          description: Request to scan a file was processed successfully
+          schema:
+            $ref: '#/definitions/CSHRServiceStatus'
+        '400':
+          description: The request was invalid.
+          schema:
+            $ref: '#/definitions/CSHRServiceStatus'
+        '401':
+          description: >-
+            You are not authorised to use this service. Please supply the
+            correct credentials or contact the system administrator if you
+            believe they are correct.
+          schema:
+            $ref: '#/definitions/CSHRServiceStatus'
+        '500':
+          description: >-
+            An unexpected error occurred processing your request. Please contact
+            the system administrator.
+          schema:
+            $ref: '#/definitions/CSHRServiceStatus'
+        '503':
+          description: >-
+            The service is currently unavailable and your request cannot be
+            processed at this time. This may be a temporary condition and if it
+            persists please contact the system administrator
+          schema:
+            $ref: '#/definitions/CSHRServiceStatus'
+definitions:
+  CSHRServiceStatus:
+    type: object
+    properties:
+      code:
+        type: string
+      detail:
+        type: array
+        items:
+          type: string
+      summary:
+        type: string
