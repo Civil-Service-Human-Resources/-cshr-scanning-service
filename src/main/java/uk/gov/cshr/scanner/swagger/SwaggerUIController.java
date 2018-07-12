@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * This class is responsible for ensuring that the Swagger UI html page is only accessible when a specific profile is
  * enabled on startup.
  */
-@Profile("!swagger-dev")
+@Profile("!dev")
 @RestController
 public class SwaggerUIController {
     /**
