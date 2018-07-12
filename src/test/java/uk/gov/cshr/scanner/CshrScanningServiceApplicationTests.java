@@ -1,4 +1,4 @@
-package uk.gov.cshr.scanning;
+package uk.gov.cshr.scanner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
