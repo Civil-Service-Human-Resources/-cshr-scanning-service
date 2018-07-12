@@ -1,2 +1,7 @@
 base:
   pacakge: uk.gov.cshr.scanner
+spring:
+  security:
+    user:
+      name: scanuser
+      password: scanpwd

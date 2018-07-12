@@ -41,4 +41,17 @@
 			<groupId>uk.gov.cshr</groupId>
 			<artifactId>cshr-common</artifactId>
 		</dependency>
-	</dependencies></project>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
