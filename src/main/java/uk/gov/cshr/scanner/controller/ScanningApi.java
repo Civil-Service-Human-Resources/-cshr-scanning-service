@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import uk.gov.cshr.status.CSHRServiceStatus;
 
-/** Defines the REST end points available in this service. */
+/**
+ * Defines the REST end points available in this service.
+ */
 @RequestMapping(value = "/scanner", produces = MediaType.APPLICATION_JSON_VALUE)
 @ResponseBody
 @Api(value = "scanner")
@@ -75,7 +77,7 @@ public interface ScanningApi {
                     )
                 }
             )
-    ResponseEntity<CSHRServiceStatus> scan(@ApiParam(name = "filename", required = true, value = "set of login parameters in JSON format", example = "myFile.txt")
+    ResponseEntity<CSHRServiceStatus> scan(@ApiParam(name = "filename", required = true, value = "name of the file to be scanned", example = "myFile.txt")
                                            @RequestParam("filename") String filename,
                                            @ApiParam(name = "file", required = true, value = "MultipartFile object representing the actual file itself")
                                            @RequestParam("file") MultipartFile file);
