@@ -1,3 +1,8 @@
+av:
+  service:
+    hostname: localhost
+    port: 3310
+    timeout: 500
 base:
   pacakge: uk.gov.cshr.scanner
 spring:
