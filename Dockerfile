@@ -24,7 +24,7 @@ RUN 	mvn -f /usr/src/myapp/pom.xml -s /usr/share/maven/ref/settings.xml clean pa
 
 FROM 	cshrrpg.azurecr.io/java-8-base-filebeat
 
-COPY 	--from=build /usr/src/myapp/target/cshr-scanning-service.jar /app/cshr-scanning-service.jar
+COPY 	--from=build /usr/src/myapp/target/cshr-scanning-service-0.0.1.jar /app/cshr-scanning-service.jar
 
 COPY  --chown=appuser:appuser entrypoint.sh /usr/local/bin/entrypoint.sh
 
