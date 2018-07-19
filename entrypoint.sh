@@ -16,8 +16,8 @@ if [[ ${#} -eq 0 ]]; then
     java -Djava.security.egd=file:/dev/./urandom \
         -Dcshr.scanner.endpoint=${CSHR_SCANNER_ENDPOINT} \
         -Dserver.port=${SERVER_PORT} \
-        -Dspring.security.service.password=${SPRING_SECURITY_SERVICE_PASSWORD} \
-        -Dspring.security.service.username=${SPRING_SECURITY_SERVICE_USERNAME} \
+        -Dspring.security.user.password=${SPRING_SECURITY_SERVICE_PASSWORD} \
+        -Dspring.security.user.name=${SPRING_SECURITY_SERVICE_USERNAME} \
         -jar /app/cshr-scanning-service.jar
 else
     echo "Running command:"
