@@ -14,7 +14,8 @@ if [[ ${#} -eq 0 ]]; then
     sudo -E filebeat -e -c /etc/filebeat/filebeat.yml &
     echo "Starting application"
     java -Djava.security.egd=file:/dev/./urandom \
-        -Dcshr.scanner.endpoint=${CSHR_SCANNER_ENDPOINT} \
+        -Dav.service.hostname=${AV_SERVICE_HOSTNAME} \
+        -Dav.service.port=${AV_SERVICE_PORT} \
         -Dserver.port=${SERVER_PORT} \
         -Dspring.security.user.password=${SPRING_SECURITY_SERVICE_PASSWORD} \
         -Dspring.security.user.name=${SPRING_SECURITY_SERVICE_USERNAME} \
