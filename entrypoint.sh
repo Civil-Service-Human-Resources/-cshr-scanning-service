@@ -19,6 +19,7 @@ if [[ ${#} -eq 0 ]]; then
         -Dserver.port=${SERVER_PORT} \
         -Dspring.security.user.password=${SPRING_SECURITY_SERVICE_PASSWORD} \
         -Dspring.security.user.name=${SPRING_SECURITY_SERVICE_USERNAME} \
+        -Dspring.profiles.active=${SPRING_PROFILES_ACTIVE} \
         -jar /app/cshr-scanning-service.jar
 else
     echo "Running command:"
